@@ -1,0 +1,188 @@
+import React, {useState} from 'react';
+import { Button, View, ImageBackground, Text,TextInput, StyleSheet } from 'react-native';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { NavigationContainer } from '@react-navigation/native';
+import { Flatlist } from 'react-native';
+import HomeImg from './src/assets/logo1.png';
+import HomeImg2 from './src/assets/Unasp.jpg';
+import HomeImg3 from './src/assets/amizade.jpg';
+import HomeImg4 from './src/assets/rotina.png';
+import HomeImg5 from './src/assets/objetivo.jpg';
+import HomeImg6 from './src/assets/login.png';
+ 
+ 
+ 
+function HomeScreen({ navigation }) {
+  return (
+ 
+    <View>      
+         
+      <ImageBackground
+        source={HomeImg}
+        style={{width:'100%',
+        height: 400,
+        marginTop: 0,
+        marginLeft: 0
+ 
+        }}/>
+      <Text style={{textAlign:'center',
+fontStyle: 'bold', fontSize: 60, fontFamily: 'Inter-Black', color: 'black', marginTop: -10,}}></Text>
+ 
+      <Button
+        onPress={() => navigation.navigate('Quem Somos')}
+        title="Quem Somos"
+        style={{
+        color:'black',
+        marginTop: 0,
+        marginLeft: 0,  
+       
+ 
+        }}
+      />
+      <Button
+        onPress={() => navigation.navigate('Missao')}
+        title="Missão"
+        style={{
+        color:'black',
+        marginTop: 0,
+        marginLeft: 0,
+       
+ 
+        }}
+      />
+      <Button
+        onPress={() => navigation.navigate('Visao')}
+        title="Visao"
+        style={{
+        color:'black',
+        marginTop: 0,
+        marginLeft: 0,
+       
+ 
+        }}
+      />
+      <Button
+        onPress={() => navigation.navigate('Valores')}
+        title="Valores"
+        style={{
+        color:'black',
+        marginTop: 0,
+        marginLeft: 0,
+       
+ 
+        }}
+      />
+ 
+ 
+    </View>
+  );
+}
+function LoginScreen({ navigation }) {
+  return (
+    <View style={{ backGroundColor: 'black', flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+ <ImageBackground
+        source={HomeImg6}
+        style={{width:'100%',
+        height: 300,
+        marginTop: -160,
+        marginLeft: 0
+ 
+        }}/>
+    <Text style={{textAlign:"center", fontSize: 20, fontFamily: 'Inter-Black'}}></Text>
+     
+    </View>
+  );
+}
+ 
+function SomosScreen({ navigation }) {
+  return (
+    <View style={{ backGroundColor: 'black', flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+ <ImageBackground
+        source={HomeImg2}
+        style={{width:'100%',
+        height: 300,
+        marginTop: -160,
+        marginLeft: 0
+ 
+        }}/>
+    <Text style={{textAlign:"center", fontSize: 20, fontFamily: 'Inter-Black'}}>Somos técnicos formados, estamos localizados na cidade de Hortolândia, de onde
+procuramos aproximar cidadãos de estabelecimentos distintos de diversas áreas da
+região metropolitana.</Text>
+     
+    </View>
+  );
+}
+  function VisaoScreen({ navigation }) {
+  return (
+    <View style={{ backGroundColor: 'black', flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+ <ImageBackground
+        source={HomeImg4}
+        style={{width:'100%',
+        height: 300,
+        marginTop: -200,
+        marginLeft: 0
+ 
+        }}/>
+    <Text style={{textAlign:"center", fontSize: 20, fontFamily: 'Inter-Black'}}>Visamos trazer de volta com a tecnologia, a interação social nos locais do dia a dia
+que foi dificultada por conta da pandemia.</Text>
+     
+    </View>
+  );
+  }
+  function ValoresScreen({ navigation }) {
+  return (
+    <View style={{ backGroundColor: 'black', flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+ <ImageBackground
+        source={HomeImg5}
+        style={{width:'100%',
+        height: 300,
+        marginTop: 0,
+        marginLeft: 0
+ 
+        }}/>
+    <Text style={{textAlign:"center", fontSize: 20, fontFamily: 'Inter-Black', flex:1, flexDirection:'row'}}>Inovação</Text>
+<Text style={{textAlign:"center", fontSize: 20, fontFamily: 'Inter-Black', flex:1, flexDirection:'row'}}>Compromisso com Crescimento e Resultado</Text>
+<Text style={{textAlign:"center", fontSize: 20, fontFamily: 'Inter-Black', flex:1, flexDirection:'row'}}>Colaboração</Text>
+<Text style={{textAlign:"center", fontSize: 20, fontFamily: 'Inter-Black', flex:1, flexDirection:'row'}}>Integridade</Text>
+<Text style={{textAlign:"center", fontSize: 20, fontFamily: 'Inter-Black', flex:1, flexDirection:'row'}}>Incentivo e reconhecimento individual ao desenvolvimento individual do colaborador</Text>
+<Text style={{textAlign:"center", fontSize: 20, fontFamily: 'Inter-Black', flex:1, flexDirection:'row'}}>Companheirismo</Text>
+<Text style={{textAlign:"center", fontSize: 20, fontFamily: 'Inter-Black', flex:1, flexDirection:'row'}}>Facilitação Social</Text>
+     
+    </View>
+  );
+}
+  function MissaoScreen({ navigation }) {
+  return (
+    <View style={{ backGroundColor: 'black', flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+ <ImageBackground
+        source={HomeImg3}
+        style={{width:'100%',
+        height: 300,
+        marginTop: -160,
+        marginLeft: 0
+ 
+        }}/>
+    </View>
+  );
+}
+ 
+ 
+ 
+const Drawer = createDrawerNavigator();
+ 
+export default function App() {
+  return (
+    <NavigationContainer>
+      <Drawer.Navigator initialRouteName="Home">
+        <Drawer.Screen name="Home" component={HomeScreen} />
+         <Drawer.Screen name="Login" component={LoginScreen} />
+        <Drawer.Screen name="Quem Somos" component={SomosScreen}/>
+        <Drawer.Screen name="Missao" component={MissaoScreen}/>
+        <Drawer.Screen name="Visao" component={VisaoScreen}/>
+        <Drawer.Screen name="Valores" component={ValoresScreen}/>
+ 
+      </Drawer.Navigator>
+    </NavigationContainer>
+  );
+}
+
